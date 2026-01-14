@@ -1,0 +1,48 @@
+package software.ulpgc.aoc;
+
+import org.junit.jupiter.api.Test;
+import software.ulpgc.aoc.controller.FrescoController;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class FrescoControllerTest {
+
+    @Test
+    void testProcessValidIds_WithExample() {
+        // 1. GIVEN (Datos de ejemplo)
+        // Copia aquí el ejemplo del enunciado del problema.
+        // He puesto un formato basado en tu comentario "Rangos + linea vacia + IDs"
+        String exampleInput = """
+          3-5
+          10-14
+          16-20
+          12-18
+          
+          1
+          5
+          8
+          11
+          17
+          32
+            """;
+
+        long expectedResult = 3; 
+
+        FrescoController controller = new FrescoController();
+        long result = controller.processValidIds(exampleInput);
+
+        assertEquals(expectedResult, result, 
+            "El cálculo de IDs válidos no coincide con el ejemplo del enunciado.");
+    }
+
+    @Test
+    void testProcessValidIds_EmptyInput() {
+        // Caso entrada vacía
+        String emptyInput = "";
+        
+        long result = new FrescoController().processValidIds(emptyInput);
+
+        // Si no hay datos, el resultado debería ser 0
+        assertEquals(0, result, "Debería devolver 0 si la entrada está vacía.");
+    }
+}
