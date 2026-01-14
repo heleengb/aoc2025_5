@@ -31,7 +31,8 @@ public class CalculateCoverageCommand implements AnalysisCommand {
                         }
                     }
                     return acc;
-                }, (a, b) -> a);
+                }, (a, b) -> a); // Combiner requerido por reduce; no se usa porque el stream es secuencial
+
 
         // Sumar longitudes
         return merged.stream().mapToLong(NumericInterval::size).sum();
